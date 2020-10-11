@@ -44,10 +44,10 @@ def export_object(obj, fp, add_name=False):
 
     if obj.type == "TextAsset":
         with open(fp + ".txt", "wb") as f:
-            f.write(obj.read().script)
+            f.write(data.script)
     elif obj.type in ["Sprite", "Texture2D"]:
         try:
-            obj.read().image.save(fp + ".png")
+            data.image.save(fp + ".png")
         except:
             pass
 
@@ -75,7 +75,7 @@ def read_asset_index(f):
         assetlist.append((num, container_ref, path))
 
     # keys ????
-    
+
     return {a[1]: a[2] for a in assetlist}
 
 
